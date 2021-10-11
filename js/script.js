@@ -1,10 +1,17 @@
-
 // Fonction appelée lors du click du bouton
 function start() {
   // Création de l'objet apiWeather
   const apiWeather = new API_WEATHER();
   // Appel de la fonction fetchTodayForecast
+  action(apiWeather);
+}
+function actualise(){
 
+  var intput= document.getElementById("city-intput").value;
+  const newapiWeather =new API_WEATHER(intput);
+  action(newapiWeather);
+}
+function action(apiWeather){
   apiWeather
     .fetchTodayForecast()
     .then(function(response) {
